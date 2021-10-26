@@ -60,7 +60,9 @@ $(document).ready(function (e) {
 
         $.ajax(settings).done(function (response) {
             console.log(response);
-            window.location = './../views/crearsession/?active=1';
+            // console.log(response.token);
+            setCookie("token", response.token, '1')
+            window.location = './../views/crearsession/?active=1&mailU='+mail;
         }).fail(function (jqXHR, textStatus, errorThrown) {
             if (console && console.log) {
                 JSON.parse(jqXHR.responseText, function (k, v) {
@@ -85,3 +87,11 @@ function disableAler(alertIdenti) {
     $(alertIdenti).removeClass('visually-hidden');
     $(alertIdenti).addClass('visually-hidden');
 }
+
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+

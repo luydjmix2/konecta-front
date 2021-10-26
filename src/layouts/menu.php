@@ -6,9 +6,15 @@
     <li class="nav-item">
         <a class="nav-link" href="<?php echo SITE; ?>/views/usurios/">Usurios</a>
     </li>
+    <?php
+    if(){
+    ?>
     <li class="nav-item">
         <a class="nav-link" href="<?php echo SITE; ?>/views/clientes/">Clientes</a>
     </li>
+    <?Php
+    }
+    ?>
     <li class="nav-item">
         <a class="nav-link" href="<?php echo SITE; ?>/views/cerrarsession/">Cerrr session</a>
     </li>
